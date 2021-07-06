@@ -922,7 +922,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#" class="index-country">Select Country</a></li>
-                    <li><a href="upload_photo.php" class="index-upload">Upload Photo</a></li>
+                    <li><a href="{{route('upload')}}" class="index-upload">Upload Photo</a></li>
                     <li><a href="crop_photo.php" class="index-crop">Crop Photo</a></li>
                     <li class="disabled"><a href="#" class="index-enhancement">Enhancement</a></li>
                     <li class="disabled"><a href="#" class="index-print">Download Photo</a></li>
@@ -935,7 +935,7 @@
         <p class="center-alignment">
             <img alt="How 123PassportPhoto works" class="img-responsive" height="210"
                 src="{{asset('assets/images/how-it-works.jpg')}}" width="600"><br></p>
-        <form method="POST" action="upload_photo.php" name="form" onsubmit="return checkForm()" target="_self">
+        <form method="GET" action="{{route('upload')}}" name="form" onsubmit="return checkForm()" target="_self">
             <div class="alert alert-info">
                 <h3>Select country/region and photo type, then click Start:</h3>
                 <div class="row">
