@@ -923,7 +923,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#" class="index-country">Select Country</a></li>
                     <li><a href="{{route('upload')}}" class="index-upload">Upload Photo</a></li>
-                    <li><a href="crop_photo.php" class="index-crop">Crop Photo</a></li>
+                    <li><a href="{{route('image_croping')}}" class="index-crop">Crop Photo</a></li>
                     <li class="disabled"><a href="#" class="index-enhancement">Enhancement</a></li>
                     <li class="disabled"><a href="#" class="index-print">Download Photo</a></li>
                 </ul>

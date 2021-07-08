@@ -26,10 +26,10 @@ class HomeWebAppController extends Controller
     }
     public function uploadimage(Request $request)
     {
-        $this->validate($request, [
-            'file' => 'image|required|mimes:jpeg,png,jpg,gif,svg'
-        ]);
-        // dd($request->file);
+        // $this->validate($request, [
+        //     'file' => 'image|required|mimes:jpeg,png,jpg,gif,svg'
+        // ]);
+        // print_r($request->file);
         $originalImage = $request->file('file');
         $thumbnailImage = Image::make($originalImage);
         $thumbnailPath = public_path() . '/thumbnail/';
@@ -47,6 +47,7 @@ class HomeWebAppController extends Controller
         Session::put( 'image_filename', $dummyfilename);
         return redirect()->route('image_croping');
     }
+
     public function enchancement(Request $request)
     {
         $crop_width = $request->crop_width;
