@@ -166,7 +166,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Mtownsend\RemoveBg\Providers\RemoveBgServiceProvider::class,
+        
         /*
          * Application Service Providers...
          */
