@@ -68,9 +68,9 @@ class HomeWebAppController extends Controller{
         $img1->save(public_path( 'enhancements/original/' . $image_filename));
         $image1 = 'enhancements/original/' . $image_filename;
         
-        // removebg()->file($image1)->body([
-        //     'bg_color' => '#FFFFFF',
-        // ])->save(public_path( 'enhancements/enhancement1/' . $image_filename));
+        removebg()->file($image1)->body([
+            'bg_color' => '#FFFFFF',
+        ])->save(public_path( 'enhancements/enhancement1/' . $image_filename));
 
         $img2 = Image::make(file_get_contents( 'enhancements/enhancement1/' . $image_filename));
         $image2 = 'enhancements/enhancement1/' . $image_filename;
