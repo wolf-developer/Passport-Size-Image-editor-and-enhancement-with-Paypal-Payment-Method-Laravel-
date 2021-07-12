@@ -86,12 +86,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a class="pull-left" href="./"><img alt="123PassportPhoto" src="https://d2rej7jvg610l7.cloudfront.net/images/web-logo.png"></a>
+            <a class="pull-left" href="#"><img alt="123PassportPhoto" src="https://d2rej7jvg610l7.cloudfront.net/images/web-logo.png"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="./" class="index-country">Select Country</a></li>
-            <li><a href="upload_photo.php" class="index-upload">Upload Photo</a></li>            <li><a href="crop_photo.php" class="index-crop">Crop Photo</a></li>            <li><a href="enhancement.php" class="index-enhancement">Enhancement</a></li>            <li class="active"><a href="select-photo.php" class="index-print">Download Photo</a></li>          </ul>
+            <li class="disabled"><a href="./" class="index-country">Select Country</a></li>
+            <li class="disabled"><a href="{{route('upload')}}" class="index-upload">Upload Photo</a></li>            
+            <li class="disabled"><a href="{{route('image_croping')}}" class="index-crop">Crop Photo</a></li>            
+            <li class="disabled"><a href="{{route('enchancement')}}" class="index-enhancement">Enhancement</a></li>            
+            <li class="active"><a href="#" class="index-print">Download Photo</a></li>          
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -144,7 +148,7 @@
 	  </div>
 	  <div class="row">
 	    <div class="col-md-6 col-lg-6" >
-	    	<a href="enhancement.php" class="btn btn-default pull-left" role="button">&nbsp;&nbsp;&laquo; Back&nbsp;&nbsp;&nbsp;</a>
+	    	<a href="{{('../enchancement_view')}}" class="btn btn-default pull-left" role="button">&nbsp;&nbsp;&laquo; Back&nbsp;&nbsp;&nbsp;</a>
 	    	<br>
 	    </div>
 	    <div class="col-md-6 col-lg-6">

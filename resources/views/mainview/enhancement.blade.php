@@ -90,8 +90,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="./" class="index-country">Select Country</a></li>
-            <li><a href="upload_photo.php" class="index-upload">Upload Photo</a></li>            <li><a href="crop_photo.php" class="index-crop">Crop Photo</a></li>            <li class="active"><a href="enhancement.php" class="index-enhancement">Enhancement</a></li>            <li><a href="select-photo.php" class="index-print">Download Photo</a></li>          </ul>
+            <li class="disabled"><a href="./" class="index-country">Select Country</a></li>
+            <li class="disabled"><a href="{{route('upload')}}" class="index-upload">Upload Photo</a></li>
+            <li class="disabled"><a href="{{route('image_croping')}}" class="index-crop">Crop Photo</a></li>
+            <li class="active"><a href="{{('enhancement')}}" class="index-enhancement">Enhancement</a></li>
+            <li class="disabled"><a href="{{route('generateimage','original')}}" class="index-print">Download Photo</a></li> 
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -141,7 +145,7 @@
 	  
 		<div class="row">
 		  <div class="col-6 col-sm-6 col-md-6 col-lg-6" >
-		  	<a href="crop_photo.php" class="btn btn-default pull-left" role="button">&nbsp;&nbsp;&laquo; Back&nbsp;&nbsp;&nbsp;</a>
+		  	<a href="{{route('image_croping')}}" class="btn btn-default pull-left" role="button">&nbsp;&nbsp;&laquo; Back&nbsp;&nbsp;&nbsp;</a>
 		  </div>
 		  <div class="col-6 col-sm-6 col-md-6 col-lg-6">
 		    <a href="{{route('generateimage','original')}}" class="btn btn-primary pull-right" role="button">&nbsp;&nbsp;&nbsp;Next &raquo;&nbsp;&nbsp;</a>

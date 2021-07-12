@@ -922,8 +922,8 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#" class="index-country">Select Country</a></li>
-                    <li><a href="{{route('upload')}}" class="index-upload">Upload Photo</a></li>
-                    <li><a href="{{route('image_croping')}}" class="index-crop">Crop Photo</a></li>
+                    <li @if($step < 1) class="disabled" @endif> <a href= @if($step >= 1) "{{route('upload')}}" @else "#" @endif class="index-upload">Upload Photo</a></li>
+                    <li @if($step < 2) class="disabled" @endif> <a href= @if($step >= 2) "{{route('image_croping')}}" @else "#" @endif class="index-upload">Crop Photo</a></li>
                     <li class="disabled"><a href="#" class="index-enhancement">Enhancement</a></li>
                     <li class="disabled"><a href="#" class="index-print">Download Photo</a></li>
                 </ul>

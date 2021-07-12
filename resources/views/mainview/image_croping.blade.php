@@ -113,8 +113,8 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="./" class="index-country">Select Country</a></li>
-                    <li><a href="upload_photo.php" class="index-upload">Upload Photo</a></li>
+                    <li class="disabled"><a href="{{route('first')}}" class="index-country">@php  echo $step; @endphp Select Country</a></li>
+                    <li class="disabled"><a href="{{route('upload')}}" class="index-upload">Upload Photo</a></li>
                     <li class="active"><a href="{{route('image_croping')}}" class="index-crop">Crop Photo</a></li>
                     <li class="disabled"><a href="#" class="index-enhancement">Enhancement</a></li>
                     <li class="disabled"><a href="#" class="index-print">Download Photo</a></li>
@@ -156,7 +156,7 @@
             <input type="hidden" name="resized_height" id="resized_height" value="400">
             <div class="row">
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                    <a href="upload_photo.php" class="btn btn-default pull-left" role="button">&nbsp;&nbsp;&laquo;
+                    <a href="{{route('upload')}}" class="btn btn-default pull-left" role="button">&nbsp;&nbsp;&laquo;
                         Back&nbsp;&nbsp;&nbsp;</a>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
