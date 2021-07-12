@@ -106,7 +106,7 @@
         <div class="col-md-12 text-center">
 		<h2>Download photo for printing</h2>
 		<br>
-		<img style='border: 1px solid #888888;' src="{{asset($image1)}}" class='img-responsive' width='600' height='400'>		</div>
+		<img style='border: 1px solid #888888;' src="{{asset($image)}}" class='img-responsive' width='600' height='400'>		</div>
 	  </div>
 	  <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
@@ -135,15 +135,23 @@
 					<option value="Legal">Legal (8.5 x 14 inch)</option>
 					</select>
 				<br>
-			<input name="nextbutton" type="button" value="Download printable photo" class="btn btn-lg btn-primary center-block btn-block" onclick="selectPrintablePhoto()" /><br>
+			<a href="{{('../download_image')}}" class="btn btn-lg btn-primary center-block btn-block">Download printable photo</a><br>
 			<br>
 			<br>
+      <form class="w3-container w3-display-middle w3-card-4 " method="POST" id="payment-form"  action="{!! URL::to('paypal') !!}">
+        {{ csrf_field() }}
+        <p>You must pay via paypal 6.7UDS per passportphoto</p>
+        <p>      
+        <label class="w3-text-blue"><b>Enter Amount</b></label>
+        <button class="w3-btn w3-blue">Pay with PayPal</button></p>
+      </form>
 			<br>
 			<h2>Download single digital photo for online submission</h2>
 			<br>
-			<img style='border: 1px solid #888888;' src="{{asset($image1)}}" class='img-fluid'><br><br>
-			<input name="nextbutton1" type="button" value="Download single digital photo for online submission" class="btn btn-lg btn-primary center-block btn-block" onclick="selectDigitalPhoto();" /> 
+			<img style='border: 1px solid #888888;' src="{{asset($single_image)}}" class='img-fluid'><br><br>
+			<a href="{{('../download_singleimage')}}" class="btn btn-lg btn-primary center-block btn-block">Download single digital photo for online submission</a><br>
 			<br>
+
 		</div>
 	  </div>
 	  <div class="row">

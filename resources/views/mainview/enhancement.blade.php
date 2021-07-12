@@ -94,7 +94,7 @@
             <li class="disabled"><a href="{{route('upload')}}" class="index-upload">Upload Photo</a></li>
             <li class="disabled"><a href="{{route('image_croping')}}" class="index-crop">Crop Photo</a></li>
             <li class="active"><a href="{{('enhancement')}}" class="index-enhancement">Enhancement</a></li>
-            <li class="disabled"><a href="{{route('generateimage','original')}}" class="index-print">Download Photo</a></li> 
+            <li class="disabled"><a href="{{route('previewimage','original')}}" class="index-print">Download Photo</a></li> 
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -107,37 +107,37 @@
      <div class="row">
 			<div class="col-md-4 col-sm-6 col-xs-12 text-center">
 				<h4>Original</h4>
-				<a href="{{route('generateimage','original')}}">
+				<a href="{{route('previewimage','original')}}">
 				<img class="thumbnail center-block" alt="" src="{{$image1}}" />
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12 text-center">
 				<h4>Enhancement 1</h4>
-				<a href="{{route('generateimage','enhancement1')}}">
+				<a href="{{route('previewimage','enhancement1')}}">
 				<img class="thumbnail center-block" alt="" src="{{$image2}}" />
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12 text-center">
 				<h4>Enhancement 2</h4>
-				<a href="{{route('generateimage','enhancement2')}}">
+				<a href="{{route('previewimage','enhancement2')}}">
 				<img class="thumbnail center-block" alt="" src="{{$image3}}" />
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12 text-center">
 				<h4>Enhancement 3</h4>
-				<a href="{{route('generateimage','enhancement3')}}">
+				<a href="{{route('previewimage','enhancement3')}}">
 				<img class="thumbnail center-block" alt="" src="{{$image4}}" />
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12 text-center">
 				<h4>Enhancement 4</h4>
-				<a href="{{route('generateimage','enhancement4')}}">
+				<a href="{{route('previewimage','enhancement4')}}">
 				<img class="thumbnail center-block" alt="" src="{{$image5}}" />
 				</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12 text-center">
 				<h4>Enhancement 5</h4>
-				<a href="{{route('generateimage','enhancement5')}}">
+				<a href="{{route('previewimage','enhancement5')}}">
 				<img class="thumbnail center-block" alt="" src="{{$image6}}" />
 				</a>
 			</div>
@@ -148,7 +148,7 @@
 		  	<a href="{{route('image_croping')}}" class="btn btn-default pull-left" role="button">&nbsp;&nbsp;&laquo; Back&nbsp;&nbsp;&nbsp;</a>
 		  </div>
 		  <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-		    <a href="{{route('generateimage','original')}}" class="btn btn-primary pull-right" role="button">&nbsp;&nbsp;&nbsp;Next &raquo;&nbsp;&nbsp;</a>
+		    <a href="{{route('previewimage','original')}}" class="btn btn-primary pull-right" role="button">&nbsp;&nbsp;&nbsp;Next &raquo;&nbsp;&nbsp;</a>
 		  </div>
 		</div>
       <hr>
