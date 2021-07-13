@@ -206,13 +206,13 @@ class HomeWebAppController extends Controller{
         $single_img = Image::make(public_path( $source_image )); //->resize(session('aspect-ratio-x')*100, session('aspect-ratio-y')*100);
         $single_image = 'previewimages/s_' . $image_filename;
         $single_img->insert(public_path('watermark.png'), 'bottom-right', 0, 0);
-        $single_img->text('PassportPhoto Editor(2021)', 120, 190, function($font) { 
-            $font->size(80);  
-            $font->color('#555555');  
-            $font->align('center');  
-            $font->valign('bottom');  
-            $font->angle(90);  
-        });
+        // $single_img->text('PassportPhoto Editor(2021)', 120, 190, function($font) { 
+        //     $font->size(80);  
+        //     $font->color('#555555');  
+        //     $font->align('center');  
+        //     $font->valign('bottom');  
+        //     $font->angle(90);  
+        // });
         $single_img->save(public_path( $single_image ));
         
         $img = Image::canvas( $aspect_ratio_x, $aspect_ratio_y);
@@ -220,11 +220,14 @@ class HomeWebAppController extends Controller{
         $img->pixelate(2);
         $image = 'previewimages/' . $image_filename;
         $img->save(public_path( $image ));
+  
+        $paid = 'unpaid';
         
         return view( 'mainview.generateimage') 
             ->with(compact('image'))
-            ->with(compact('single_image'));
-    }
+            ->with(compact('single_image'))
+            ->with(compact('paid'));
+        }
 
     public function generateimage(){
         $success = Session::get('success');
@@ -250,16 +253,26 @@ class HomeWebAppController extends Controller{
         $image = 'paidimages/' . $image_filename;
         $img->save(public_path( $image ));
         
+        $paid = 'paid';
         
         return view( 'mainview.generateimage') 
         ->with(compact('image'))
-        ->with(compact('single_image'));
+        ->with(compact('single_image'))
+        ->with(compact('paid'));
     }
     
     public function download_image(){
         $success = Session::get('success');
         if($success != 'Payment success'){
-            return;
+            $image_filename  = Session::get('image_filename');
+            $single_image = 'previewimages/s_' . $image_filename;
+            $image = 'previewimages/' . $image_filename;
+            $paid = 'unpaid';
+
+            return view( 'mainview.generateimage') 
+            ->with(compact('image'))
+            ->with(compact('single_image'))
+            ->with(compact('paid'));
         }
 
         $image_filename  = Session::get('image_filename');
@@ -271,7 +284,15 @@ class HomeWebAppController extends Controller{
     public function download_singleimage(){
         $success = Session::get('success');
         if($success != 'Payment success'){
-            return;
+            $image_filename  = Session::get('image_filename');
+            $single_image = 'previewimages/s_' . $image_filename;
+            $image = 'previewimages/' . $image_filename;
+            $paid = 'unpaid';
+
+            return view( 'mainview.generateimage') 
+            ->with(compact('image'))
+            ->with(compact('single_image'))
+            ->with(compact('paid'));
         }
         
         $image_filename  = Session::get('image_filename');

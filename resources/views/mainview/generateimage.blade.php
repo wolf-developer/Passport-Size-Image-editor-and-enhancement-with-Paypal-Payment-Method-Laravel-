@@ -86,7 +86,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a class="pull-left" href="#"><img alt="123PassportPhoto" src="https://d2rej7jvg610l7.cloudfront.net/images/web-logo.png"></a>
+            <a class="pull-left" href="./"><img alt="123PassportPhoto" src="https://d2rej7jvg610l7.cloudfront.net/images/web-logo.png"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -138,13 +138,13 @@
 			<a href="{{('../download_image')}}" class="btn btn-lg btn-primary center-block btn-block">Download printable photo</a><br>
 			<br>
 			<br>
-      <form class="w3-container w3-display-middle w3-card-4 " method="POST" id="payment-form"  action="{!! URL::to('paypal') !!}">
-        {{ csrf_field() }}
-        <p>You must pay via paypal 6.7UDS per passportphoto</p>
-        <p>      
-        <label class="w3-text-blue"><b>Enter Amount</b></label>
-        <button class="w3-btn w3-blue">Pay with PayPal</button></p>
-      </form>
+      @if ($paid == 'unpaid')
+        <form class="w3-container w3-display-middle w3-card-4 " method="POST" id="payment-form"  action="{!! URL::to('paypal') !!}">
+          {{ csrf_field() }}
+          <p>You must pay via paypal 6.7UDS per passportphoto</p>
+          <button style="background-image:url(../assets/images/paypal.png); width:300px ; height:147px ; border:none" class="w3-btn w3-blue"></button></p>
+        </form>
+      @endif
 			<br>
 			<h2>Download single digital photo for online submission</h2>
 			<br>
