@@ -204,20 +204,18 @@ class HomeWebAppController extends Controller{
         $source_image = 'enhancements/'. $enhancement.'/' . $image_filename;
 
         $single_img = Image::make(public_path( $source_image )); //->resize(session('aspect-ratio-x')*100, session('aspect-ratio-y')*100);
+        $watermark_img = Image::make(public_path('watermark.png'));
         $single_image = 'previewimages/s_' . $image_filename;
-        $single_img->insert(public_path('watermark.png'), 'bottom-right', 0, 0);
-        // $single_img->text('PassportPhoto Editor(2021)', 120, 190, function($font) { 
-        //     $font->size(80);  
-        //     $font->color('#555555');  
-        //     $font->align('center');  
-        //     $font->valign('bottom');  
-        //     $font->angle(90);  
-        // });
+        $single_img->insert($watermark_img, 'bottom-right', 0, 0);
         $single_img->save(public_path( $single_image ));
         
         $img = Image::canvas( $aspect_ratio_x, $aspect_ratio_y);
-        $img->fill(public_path( $single_image ),0,0);
-        $img->pixelate(2);
+        for($i=0 ; $i<3 ; $i++ ){
+            for($j=0 ; $j<2 ; $j++ ){
+                $img->insert($single_img, 'bottom-right', session('aspect-ratio-x')* 100 * $i, session('aspect-ratio-y')* 100 * $j);      
+            }
+        }
+
         $image = 'previewimages/' . $image_filename;
         $img->save(public_path( $image ));
   
@@ -248,8 +246,13 @@ class HomeWebAppController extends Controller{
         $single_img->save(public_path( $single_image ));
         
         $img = Image::canvas( $aspect_ratio_x, $aspect_ratio_y);
-        $img->fill(public_path( $source_image),0,0);
-        $img->pixelate(2);
+        $img = Image::canvas( $aspect_ratio_x, $aspect_ratio_y);
+        for($i=0 ; $i<3 ; $i++ ){
+            for($j=0 ; $j<2 ; $j++ ){
+                $img->insert($single_img, 'bottom-right', session('aspect-ratio-x')* 100 * $i, session('aspect-ratio-y')* 100 * $j);      
+            }
+        }
+
         $image = 'paidimages/' . $image_filename;
         $img->save(public_path( $image ));
         
